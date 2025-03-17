@@ -29,7 +29,7 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
       style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.themeColor,
           foregroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 16, vertical: 10,
 
           ),
@@ -46,6 +46,9 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
     return InputDecorationTheme(
       fillColor: Colors.white,
       filled: true,
+      hintStyle: const TextStyle(
+        fontWeight: FontWeight.w300
+      ),
       border: _inputBorder(),
       enabledBorder: _inputBorder(),
       errorBorder: _inputBorder(),
