@@ -34,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                _buildSignInForm(),
+                _buildSignUpForm(),
                 const SizedBox(
                   height: 24,
                 ),
@@ -42,14 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      TextButton(
-                        onPressed: _onTapforgotPasswordButton,
-                        child: const Text(
-                          'Forgot Password?',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ),
-                      _buildSignUpSection()
+                      _buildHaveAccountSection(),
                     ],
                   ),
                 ),
@@ -61,33 +54,56 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-
-
-  Widget _buildSignUpSection() {
+  Widget _buildHaveAccountSection() {
     return RichText(
-      text:  TextSpan(
+      text: TextSpan(
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w600,
             fontSize: 14,
             letterSpacing: 0.5,
           ),
-          text: "Don't have an account? ",
+          text: "Have account? ",
           children: [
             TextSpan(
-                text: 'Sing Up', style: const TextStyle(color: AppColors.themeColor),
-            recognizer: TapGestureRecognizer()..onTap = _onTapSignUp,
+              text: 'Sing In',
+              style: const TextStyle(color: AppColors.themeColor),
+              recognizer: TapGestureRecognizer()..onTap = _onTapSignIn,
             )
           ]),
     );
   }
 
-  Widget _buildSignInForm() {
+  Widget _buildSignUpForm() {
     return Column(
       children: [
         TextFormField(
           decoration: const InputDecoration(
             hintText: 'Email',
+          ),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(
+            hintText: 'First Name',
+          ),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(
+            hintText: 'Last Name',
+          ),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(
+            hintText: 'Mobile',
           ),
         ),
         const SizedBox(
@@ -112,11 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     //TODO
   }
 
-  void _onTapforgotPasswordButton() {
-    //TODO
-  }
-  void _onTapSignUp() {
-    //TODO
+  void _onTapSignIn() {
+    Navigator.pop(context);
   }
 }
-

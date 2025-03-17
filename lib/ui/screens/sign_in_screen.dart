@@ -44,7 +44,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: _onTapforgotPasswordButton,
+                        onPressed: _onTapForgotPasswordButton,
                         child: const Text(
                           'Forgot Password?',
                           style: TextStyle(color: Colors.grey),
@@ -112,7 +112,7 @@ class _SignInScreenState extends State<SignInScreen> {
     //TODO
   }
 
-  void _onTapforgotPasswordButton() {
+  void _onTapForgotPasswordButton() {
     //TODO
   }
 
