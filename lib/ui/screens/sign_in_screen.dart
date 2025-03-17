@@ -34,7 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 24,
                 ),
                 TextFormField(
-                  decoration:  const InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Email',
                   ),
                 ),
@@ -54,26 +54,36 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: const Icon(Icons.arrow_circle_right_outlined)),
                 const SizedBox(
                   height: 24,
-
                 ),
-                TextButton(onPressed: (){}, child: const Text('Forgot Password?'),),
-                RichText(text: const TextSpan(
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    letterSpacing: 0.5,
-                  ),
-                  text: "Don't have an account? ",
-                  children: [
-                    TextSpan(
-                      text: 'Sing Up',
-                      style: TextStyle(
-                        color: AppColors.themeColor
+                Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
+                      RichText(
+                        text: const TextSpan(
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                              letterSpacing: 0.5,
+                            ),
+                            text: "Don't have an account? ",
+                            children: [
+                              TextSpan(
+                                  text: 'Sing Up',
+                                  style: TextStyle(color: AppColors.themeColor))
+                            ]),
                       )
-                    )
-                  ]
-                ))
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
