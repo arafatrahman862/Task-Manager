@@ -1,20 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:task_manager/ui/screens/reset_password_screen.dart';
+import 'package:task_manager/ui/screens/forgot_password_otp.dart';
 import 'package:task_manager/ui/screens/sign_in_screen.dart';
 import 'package:task_manager/ui/utils/app_colors.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
-class ForgotPasswordOtpScreen extends StatefulWidget {
-  const ForgotPasswordOtpScreen({super.key});
+class ResetPasswordScreen extends StatefulWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
-  State<ForgotPasswordOtpScreen> createState() => _ForgotPasswordOtpScreenState();
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
-class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -31,7 +29,7 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
                   height: 82,
                 ),
                 Text(
-                  'Pin Verification',
+                  'Set Password',
                   style: textTheme.displaySmall
                       ?.copyWith(fontWeight: FontWeight.w500),
                 ),
@@ -39,14 +37,14 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
                   height: 8,
                 ),
                 Text(
-                  'A 6 digits verification otp has been sent to your email address',
-                  style: textTheme.titleSmall
-                      ?.copyWith(fontWeight: FontWeight.w500,color: Colors.grey),
+                  'Minimum number of password should be 8 letters',
+                  style: textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w500, color: Colors.grey),
                 ),
                 const SizedBox(
                   height: 24,
                 ),
-                _buildVerifyEmailForm(),
+                _buildResetPasswordForm(),
                 const SizedBox(
                   height: 48,
                 ),
@@ -86,31 +84,24 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
     );
   }
 
-  Widget _buildVerifyEmailForm() {
+  Widget _buildResetPasswordForm() {
     return Column(
       children: [
-        PinCodeTextField(
-          keyboardType: TextInputType.number,
-          length: 6,
-          obscureText: false,
-          animationType: AnimationType.fade,
-          pinTheme: PinTheme(
-            shape: PinCodeFieldShape.box,
-            borderRadius: BorderRadius.circular(5),
-            fieldHeight: 50,
-            fieldWidth: 40,
-            activeFillColor: Colors.white,
-            inactiveFillColor: Colors.white,
-            selectedFillColor: Colors.white,
-
+        TextFormField(
+          decoration: const InputDecoration(
+            hintText: 'Password',
           ),
-          animationDuration: Duration(milliseconds: 300),
-          backgroundColor: Colors.transparent,
-          enableActiveFill: true,
-          appContext: context,
         ),
         const SizedBox(
           height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(
+            hintText: 'Confirm Password',
+          ),
+        ),
+        const SizedBox(
+          height: 24,
         ),
         ElevatedButton(
             onPressed: _onTapNextButton,
@@ -120,10 +111,16 @@ class _ForgotPasswordOtpScreenState extends State<ForgotPasswordOtpScreen> {
   }
 
   void _onTapNextButton() {
-    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ResetPasswordScreen(),),);
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const SignInScreen()),
+        (_) => false);
   }
 
   void _onTapSignIn() {
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => const SignInScreen()), (_) => false);
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const SignInScreen()),
+        (_) => false);
   }
 }
