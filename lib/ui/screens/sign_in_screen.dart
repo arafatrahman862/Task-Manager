@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/ui/utils/app_colors.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -50,7 +51,29 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () {},
-                    child: const Icon(Icons.arrow_circle_right_outlined))
+                    child: const Icon(Icons.arrow_circle_right_outlined)),
+                const SizedBox(
+                  height: 24,
+
+                ),
+                TextButton(onPressed: (){}, child: const Text('Forgot Password?'),),
+                RichText(text: const TextSpan(
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    letterSpacing: 0.5,
+                  ),
+                  text: "Don't have an account? ",
+                  children: [
+                    TextSpan(
+                      text: 'Sing Up',
+                      style: TextStyle(
+                        color: AppColors.themeColor
+                      )
+                    )
+                  ]
+                ))
               ],
             ),
           ),
