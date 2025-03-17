@@ -78,6 +78,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Column(
       children: [
         TextFormField(
+          keyboardType: TextInputType.emailAddress,
           decoration: const InputDecoration(
             hintText: 'Email',
           ),
@@ -102,6 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           height: 8,
         ),
         TextFormField(
+          keyboardType: TextInputType.phone,
           decoration: const InputDecoration(
             hintText: 'Mobile',
           ),
