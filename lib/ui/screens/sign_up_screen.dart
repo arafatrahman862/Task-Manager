@@ -1,17 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/ui/screens/sign_up_screen.dart';
 import 'package:task_manager/ui/utils/app_colors.dart';
 import 'package:task_manager/ui/widgets/screen_background.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -28,7 +27,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   height: 82,
                 ),
                 Text(
-                  'Get Started With',
+                  'Join With Us',
                   style: textTheme.displaySmall
                       ?.copyWith(fontWeight: FontWeight.w500),
                 ),
@@ -62,9 +61,11 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
+
+
   Widget _buildSignUpSection() {
     return RichText(
-      text: TextSpan(
+      text:  TextSpan(
           style: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.w600,
@@ -74,9 +75,8 @@ class _SignInScreenState extends State<SignInScreen> {
           text: "Don't have an account? ",
           children: [
             TextSpan(
-              text: 'Sing Up',
-              style: const TextStyle(color: AppColors.themeColor),
-              recognizer: TapGestureRecognizer()..onTap = _onTapSignUp,
+                text: 'Sing Up', style: const TextStyle(color: AppColors.themeColor),
+            recognizer: TapGestureRecognizer()..onTap = _onTapSignUp,
             )
           ]),
     );
@@ -115,13 +115,8 @@ class _SignInScreenState extends State<SignInScreen> {
   void _onTapforgotPasswordButton() {
     //TODO
   }
-
   void _onTapSignUp() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SignUpScreen(),
-      ),
-    );
+    //TODO
   }
 }
+
