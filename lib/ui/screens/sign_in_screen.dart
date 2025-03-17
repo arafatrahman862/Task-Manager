@@ -33,25 +33,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Email',
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
-                  ),
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                ElevatedButton(
-                    onPressed: () {},
-                    child: const Icon(Icons.arrow_circle_right_outlined)),
+                _buildSignInForm(),
                 const SizedBox(
                   height: 24,
                 ),
@@ -60,27 +42,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: _onTapforgotPassword,
                         child: const Text(
                           'Forgot Password?',
                           style: TextStyle(color: Colors.grey),
                         ),
                       ),
-                      RichText(
-                        text: const TextSpan(
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                              letterSpacing: 0.5,
-                            ),
-                            text: "Don't have an account? ",
-                            children: [
-                              TextSpan(
-                                  text: 'Sing Up',
-                                  style: TextStyle(color: AppColors.themeColor))
-                            ]),
-                      )
+                      _buildSignUpSection()
                     ],
                   ),
                 ),
@@ -90,5 +58,56 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  void _onTapforgotPassword() {
+    //TODO
+  }
+
+  Widget _buildSignUpSection() {
+    return RichText(
+      text: const TextSpan(
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+            letterSpacing: 0.5,
+          ),
+          text: "Don't have an account? ",
+          children: [
+            TextSpan(
+                text: 'Sing Up', style: TextStyle(color: AppColors.themeColor))
+          ]),
+    );
+  }
+
+  Widget _buildSignInForm() {
+    return Column(
+      children: [
+        TextFormField(
+          decoration: const InputDecoration(
+            hintText: 'Email',
+          ),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(
+            hintText: 'Password',
+          ),
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        ElevatedButton(
+            onPressed: _onTapNextButton,
+            child: const Icon(Icons.arrow_circle_right_outlined)),
+      ],
+    );
+  }
+
+  void _onTapNextButton() {
+    //TODO
   }
 }
