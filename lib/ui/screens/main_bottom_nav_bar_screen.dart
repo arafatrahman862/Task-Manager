@@ -4,6 +4,8 @@ import 'package:task_manager/ui/screens/completed_task_screen.dart';
 import 'package:task_manager/ui/screens/new_task_screen.dart';
 import 'package:task_manager/ui/screens/progress_task_screen.dart';
 
+import '../widgets/tm_app_bar.dart';
+
 class MainBottomNavBarScreen extends StatefulWidget {
   const MainBottomNavBarScreen({super.key});
 
@@ -23,6 +25,7 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:  TMAppBar(),
       body: _screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,
@@ -52,3 +55,5 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
     );
   }
 }
+
+
